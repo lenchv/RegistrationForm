@@ -1,0 +1,429 @@
+#login-block {
+	width: 600px;
+	height: 100%;
+
+	border-radius: 1em;
+	position: relative;
+
+	margin: auto;
+	margin-top: 1.5em;
+
+	font-family: "RobotoDraft","Roboto", Helvetica, sans-serif;
+	background-color: #B2EBF2;
+
+	padding-bottom: 1.5em;
+}
+/****************************************/
+.nav-tabs {
+	width: 100%;
+	border-radius: 1em 1em 0 0;
+
+	background-color: #4DD0E1;
+}
+
+.nav-tabs li{
+	display: inline-block;
+	text-align: center;
+	width: 50%;
+}
+
+.nav-tabs li:first-child {
+	border-top-left-radius: 1em;
+}
+
+.nav-tabs li:last-child {
+	border-top-right-radius: 1em;
+}
+
+.nav-tabs .active {
+	background-color: #B2EBF2;
+}
+
+
+.nav-tabs a {
+	display: block;
+	text-decoration: none;
+	font-weight: 600;
+	padding: 0.75em;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-tabs li:not([class="active"]):hover  {
+	background-color: #00BCD4;
+}
+/****************************************/
+/****************************************/
+
+.form-box {
+	width: 80%;
+	margin: auto;
+	margin-top: 2.5%;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.form-label {
+	float: left;
+	width: 10em;
+	line-height: 2.15em;
+	margin-right: 1em;
+	text-align: right;
+}
+
+.input-holder {
+	display: inline-block;
+	background-color: #E0F7FA;
+	border-radius: 0.25em;
+
+	border: 1px solid #80DEEA;
+}
+
+.input-holder input[type='text'], 
+.input-holder input[type='password'], 
+.input-holder input[type='radio'], 
+#login-block input[type='submit'], 
+.input-holder select 
+{
+	border: none;
+	outline: none;
+
+	font-size: 1em;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.87);
+
+	margin: 0;
+	padding: 0.5em;
+
+	background-color: #E0F7FA;
+
+	border-radius: 0.25em;
+	box-shadow: 0 0 15px #4DD0E1;
+}
+
+.input-holder > input:focus, 
+.input-holder > select:focus {
+	box-shadow: 0 0 5px #4DD0E1;
+}
+/*****************************************************/
+/********************Ошибка***************************/
+.input-holder.error {
+	border: 1px solid #F48FB1;
+	background-color: #FCE4EC;
+}
+
+.input-holder.error > input {
+	box-shadow: 0 0 10px #E91E63;
+}
+
+.input-holder.error > select {
+	box-shadow: 0 0 10px #E91E63;
+}
+
+.input-holder.error[data-error]:not([data-error=""]):after
+{
+	content: attr(data-error);
+	display: block;
+	margin: 0.75em 0.75em 0 0.75em;
+	font-size: 0.75em;
+	color: #E91E63;
+}
+/*****************************************************/
+/***********Переключатель пола**********************/
+#female-radio, #male-radio {
+	float: left;
+}
+
+.ico-man, .ico-woman {
+	background-image: url("../img/ico/gender_ico.png");
+	background-repeat: no-repeat;
+	margin: 0.25em 1.5em;
+}
+
+.ico-man {
+	background-position: 0 0;
+	width: 12px;
+	height: 24px;
+} 
+
+.ico-woman {
+	background-position: -12px 0;
+	width: 12px;
+	height: 24px;	
+}
+
+#female-radio {
+	box-shadow: 1px 0 10px #00BCD4;
+}
+
+#male-radio {
+	box-shadow: -1px 0 10px #00BCD4;
+}
+
+#male-radio:hover, #female-radio:hover {
+	background-color: #B2EBF2;
+	cursor: pointer;
+}
+
+#female-radio:hover {
+	box-shadow: 1px 0 5px #00BCD4;
+}
+
+#male-radio:hover {
+	box-shadow: -1px 0 5px #00BCD4;
+}
+
+.input-holder input[type='radio'] {
+	display: none;
+}
+
+.input-holder input[type="radio"]:checked + #female-radio,
+.input-holder input[type="radio"]:checked + #male-radio,
+.input-holder input[type="radio"]:checked + #female-radio:hover,
+.input-holder input[type="radio"]:checked + #male-radio:hover
+{
+	background-color: #00BCD4;
+	box-shadow: 0 0 1px #00BCD4;
+}
+/****************************************************/
+/*****************Выпадающий список******************/
+.input-holder select {
+	margin: 0;
+	height: 2em;
+	border-radius: 0.25em;
+}
+
+.preloader {
+	background: url("../img/ico/ic_loop_black_18dp.png");
+	background-repeat: no-repeat;
+	width: 36px;
+	height: 36px;
+	margin: auto;
+	opacity: 0.7;
+}
+/****************************************************/
+/*********Загрузка картинки**************************/
+.upload-label, .load-image {
+	display: block;
+	position: relative;
+	margin:auto;
+	width: 100px;
+	height: 100px;
+	border: 2px dashed #80DEEA;
+	border-radius: 1em;
+	background-color: #E0F7FA;	
+	z-index: 0;
+}
+
+.upload-label:hover {
+	border: 2px dashed #26C6DA;
+	opacity: 0.9;
+	cursor: pointer;
+}
+
+.upload-label p {
+	margin: 25% 5%;
+	height: 50%;
+	font-size: .75em;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.upload-label > input[type="file"] {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.0;
+	cursor: pointer;
+	z-index: 0;
+}
+
+.load-image > .close {
+	position: absolute;
+	right: 0;
+	z-index: 2;
+	margin: .1em;
+	background: url("../img/ico/ic_close_black_18dp.png");
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
+
+.load-image > .close:hover {
+	opacity: 0.8;
+}
+/****************************************************/
+.submit-btn {
+}
+
+#login-block input[type='submit'] {
+	display: block;
+	margin: 1em auto;
+	padding: 0.5em 1em;
+	font-size: 1.5em;
+	border: 1px solid #26C6DA;
+	box-shadow: 0 0 10px #00ACC1;
+	border-radius: 1.5em;
+	background-color: #4DD0E1;
+	width: 50%;	
+}
+
+#login-block input[type='submit']:hover {
+	background-color: #26C6DA;
+	opacity: 0.9;	
+	cursor: pointer;
+}
+
+#login-block input[type='submit']:active {
+	box-shadow: 0 0 5px #00ACC1;
+	color: rgba(255, 255, 255, 0.8);
+	opacity: 1;	
+	cursor: pointer;
+}
+
+p.user-terms {
+	font-size: 0.75em;
+	text-align: center;
+	margin-top: 1.5em;
+}
+
+p.user-terms a {
+	color: #00838F;
+	text-decoration: none;
+	border-bottom: 1px dotted;
+}
+/****************************************/
+
+.modal-error {
+	position: fixed;
+	top: 30%;
+	left: 32%;
+	right: 32%;
+	padding: 0 2em;
+	height: 3em;
+	line-height: 3em;
+	text-align: center;
+	border-radius: 0.5em;
+	background-color: rgba(32, 32, 32, 0.8); 
+	color: #F48FB1;
+	box-shadow: 0 0 10px rgb(32, 32, 32); 
+	-webkit-transition: opacity 0.75s ease-out;
+	-moz-transition: opacity 0.75s ease-out;
+	-o-transition: opacity 0.75s ease-out;
+	transition: opacity 0.75s ease-out;
+}
+
+.load-image > .loader {
+	position: absolute;
+	width: 0;
+	bottom: 0;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+	background-color: blue;
+	height: 5px;
+}
+
+.switch-lang {
+	position: absolute;
+
+	padding: 0.25em 1em;
+
+	border-radius: 1em;
+	background-color: #B2EBF2;
+}
+/****************************************/
+/**  Переключатель языка   **************/
+.switch-lang a:hover,
+.switch-lang a 
+{
+	text-decoration: none;
+	color: #00ACC1;
+}
+
+.switch-lang a.active {
+	text-shadow: 0 0 15px #F50057;
+	color: #F50057;
+}
+/****************************************/
+
+/**************************************************************************************************/
+/**************************************************************************************************/
+
+/***	СТРАНИЦА ПОЛЬЗОВАТЕЛЯ 	***/
+#user-page {
+	font-family: "RobotoDraft","Roboto", Helvetica, sans-serif;
+	margin: 2em auto;
+	width: 80%;
+	overflow: none;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+#user-page a.exit, 
+#user-page a.exit:hover 
+{
+	float: right;
+	color: #00ACC1;
+}
+
+#user-page img {
+	height: auto;
+	margin: 2em;
+	border-radius: 1em;
+}	
+
+#info {
+	margin: 2em;
+}
+
+#info div {
+	margin-right: 2em;
+	float: left;
+}
+
+@media screen and (max-width: 560px)  {
+	#info h1 {
+		font-size: 1.75em;
+	}
+
+	#info p {
+		font-size: 1em;
+		margin: 0.5em 0;
+	}
+
+	#user-page img {
+		width: 100%;
+		clear: both;
+	}
+}
+
+@media screen and (min-width: 560px)  {
+	#info h1 {
+		font-size: 3em;
+	}
+	#info p {
+		font-size: 1.5em;
+		margin: 0.5em 0;
+	}
+	#user-page img {
+		width: 100%;
+		clear: both;
+	}
+}
+
+@media screen and (min-width: 970px)  {
+
+	#info h1 {
+		font-size: 3em;
+	}
+	#info p {
+		font-size: 1.5em;
+		margin: 0.5em 0;
+	}
+	#user-page img {
+		width: 40%;
+		float: left;
+	}
+}
+
+/****************************************/
