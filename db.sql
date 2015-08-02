@@ -10,10 +10,11 @@ CREATE TABLE IF NOT EXISTS `country` (
 
 CREATE TABLE IF NOT EXISTS `city` (
 	`id` INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`city` TINYTEXT NOT NULL,
+	`city` VARCHAR(100) NOT NULL,
 	`country_id` INTEGER,
 	FOREIGN KEY(`country_id`) REFERENCES `country`(`id`) ON DELETE SET NULL
-	ON UPDATE CASCADE 
+	ON UPDATE CASCADE,
+	UNIQUE INDEX `city_index` (`city`, `country_id`) 
 ) Engine=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `users` (
