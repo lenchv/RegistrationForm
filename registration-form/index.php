@@ -16,6 +16,7 @@ if (isset($_GET['en']) && $_GET['en']) {
 } else if (isset($_SESSION['en']) && $_SESSION['en']) { 
 	include("php/language/en.php");
 } else {
+	$_SESSION['en'] = false;
 	include("php/language/ru.php");	
 }
 session_write_close();
