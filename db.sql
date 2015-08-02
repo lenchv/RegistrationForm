@@ -4,7 +4,8 @@ use `mydb`;
 
 CREATE TABLE IF NOT EXISTS `country` (
 	`id` INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`country` VARCHAR(60) NOT NULL
+	`country` VARCHAR(60) NOT NULL,
+	UNIQUE INDEX `country_index` (`country`)
 ) Engine=InnoDB;
 
 CREATE TABLE IF NOT EXISTS `city` (

@@ -17,12 +17,12 @@
 			try {
 				$oStmt = $this->oDB->prepare("INSERT INTO users (name, email, password, birth_date, photo, city_id, gender)
 											VALUES ( :name, :email, :password, :birth_date, :photo, :city_id, :gender );");
-				$oStmt->bindParam(":name", mysql_real_escape_string($aParams['name']));
-				$oStmt->bindParam(":email", mysql_real_escape_string($aParams['email']));
-				$oStmt->bindParam(":password", mysql_real_escape_string($aParams['password']));
+				$oStmt->bindParam(":name",$aParams['name']);
+				$oStmt->bindParam(":email",$aParams['email']);
+				$oStmt->bindParam(":password",$aParams['password']);
 				$sBirthDate = intval($aParams['birth_year'])."-".intval($aParams['birth_month'])."-".intval($aParams['birth_day']);
 				$oStmt->bindParam(":birth_date", $sBirthDate);
-				$oStmt->bindParam(":photo", mysql_real_escape_string($aParams['photo']));
+				$oStmt->bindParam(":photo",$aParams['photo']);
 				$oStmt->bindParam(":city_id", intval($aParams['city']));
 				$gender = ($aParams['gender'])? 'male' : 'female';
 				$oStmt->bindParam(":gender", $gender);
@@ -60,7 +60,7 @@
 		public function getEmail($sEmail) {
 			try {
 				$oStmt = $this->oDB->prepare("SELECT users.email as email FROM users WHERE users.email = :email");
-				$oStmt->bindParam(":email", mysql_real_escape_string($sEmail));
+				$oStmt->bindParam(":email",$sEmail);
 				$oStmt->execute();
 				return $oStmt->fetchColumn();
 			} catch (PDOException $e) {
@@ -73,7 +73,7 @@
 		public function getId($sEmail) {
 			try {
 				$oStmt = $this->oDB->prepare("SELECT users.id as email FROM users WHERE users.email = :email");
-				$oStmt->bindParam(":email", mysql_real_escape_string($sEmail));
+				$oStmt->bindParam(":email",$sEmail);
 				$oStmt->execute();
 				return $oStmt->fetchColumn();
 			} catch (PDOException $e) {
@@ -110,10 +110,10 @@
 		public function addCountry($sCountry) {
 			try {
 				$oStmt = $this->oDB->prepare("INSERT INTO country (country) VALUES ( :country);");
-				$oStmt->bindParam(":country", mysql_real_escape_string($sCountry));
+				$oStmt->bindParam(":country",$sCountry);
 				$oStmt->execute();
 				$oStmt = $this->oDB->prepare("SELECT id FROM country WHERE country = :country;");
-				$oStmt->bindParam(":country", mysql_real_escape_string($sCountry));
+				$oStmt->bindParam(":country",$sCountry);
 				$oStmt->execute();
 				return $oStmt->fetchColumn();
 			} catch (PDOException $e) {
@@ -127,11 +127,11 @@
 		public function addCity($sCity, $sCountryID) {
 			try {
 				$oStmt = $this->oDB->prepare("INSERT INTO city (city, country_id) VALUES ( :city, :country_id);");
-				$oStmt->bindParam(":city", mysql_real_escape_string($sCity));
+				$oStmt->bindParam(":city",$sCity);
 				$oStmt->bindParam(":country_id", intval($sCountryID));
 				$oStmt->execute();
 				$oStmt = $this->oDB->prepare("SELECT id FROM city WHERE city = :city;");
-				$oStmt->bindParam(":city", mysql_real_escape_string($sCity));
+				$oStmt->bindParam(":city",$sCity);
 				$oStmt->execute();
 				return $oStmt->fetchColumn();
 			} catch (PDOException $e) {
@@ -145,7 +145,7 @@
 		public function getAuthData($sEmail) {
 			try {
 				$oStmt = $this->oDB->prepare("SELECT email, password, id FROM users WHERE `email` = :email");
-				$oStmt->bindParam(":email", mysql_real_escape_string($sEmail));
+				$oStmt->bindParam(":email",$sEmail);
 				$oStmt->execute();
 				return $oStmt->fetch();
 			} catch (PDOException $e) {
